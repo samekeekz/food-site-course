@@ -182,7 +182,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
         render() {
             const elem = document.createElement('div');
-            this.classes.forEach(className => elem.classList.add(className));
+            if(this.classes.length === 0){
+                this.element = 'menu__item';
+                elem.classList.add(this.element);
+            }
+            else{
+                this.classes.forEach(className => elem.classList.add(className));
+            }
+
             elem.innerHTML = `
                 <div class="menu__item">
                     <img src=${this.src} alt=${this.alt}>
@@ -200,36 +207,56 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     new MenuCard(
-        '../img/tabs/vegy.jpg',
+        './img/tabs/vegy.jpg',
         'vegy',
         'Фитнес',
         'это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
         4,
-        '.menu .container',
-        'menu__item'
+        '.menu .container'
     ).render();
 
 
     new MenuCard(
-        '../img/tabs/elite.jpg',
+        './img/tabs/elite.jpg',
         'elite',
         '“Премиум”',
         'мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-        5,
-        '.menu .container',
-        'menu__item', 'big'
+        10,
+        '.menu .container'
     ).render();
 
 
     new MenuCard(
-        '../img/tabs/post.jpg',
+        './img/tabs/post.jpg',
         'post',
         '“Постное”',
         'это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-        3,
+        10,
         '.menu .container',
-        'menu__item'
     ).render();
+
+
+
+
+    const forms = document.querySelectorAll('form');
+
+
+
+    function postData(form){
+
+
+        const request = new XMLHttpRequest();
+        request.open('POST', server.php);
+
+
+    }
+
+
+    forms.forEach(item => {
+
+    })
+
+
 
 });
 
