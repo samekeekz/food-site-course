@@ -1,6 +1,6 @@
 
 
-function cards() {
+export default function cards() {
     class MenuCard{
         constructor(src, alt, title, descr, price, parentSelector, ...classes){
             this.src = src;
@@ -45,10 +45,11 @@ function cards() {
         }
     }
 
-    const getResource = async (url) =>{
+    const getResource = async (url) => {
         const res = await fetch(url);
 
         if(!res.ok){
+            console.log('error');
             throw new Error(`Could not fetch ${url}, status:${res.status}`);
         }
 
@@ -100,5 +101,3 @@ function cards() {
 
 }
 
-
-module.exports = cards;

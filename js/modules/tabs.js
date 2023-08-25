@@ -1,6 +1,6 @@
 
 
-export function tabs() {
+export default function tabs() {
 
      // TABS
      const tabs = document.querySelectorAll('.tabheader__item'),
@@ -44,4 +44,3 @@ export function tabs() {
     });
 }
 
-// module.exports = tabs;
